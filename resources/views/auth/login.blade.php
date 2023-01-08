@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>  
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -8,7 +8,7 @@
   <meta name="author" content="Samuel Palma">
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>App - Acceso</title>  
+  <title>App - Acceso</title>
   <!-- Styles-->
   <style>
     .vertical-center {
@@ -30,13 +30,13 @@
     }
     gtag('js', new Date());
       // Shared ID
-      gtag('config', 'UA-118965717-3');
+    gtag('config', 'UA-118965717-3');
       // Bootstrap ID
-      gtag('config', 'UA-118965717-5');
+    gtag('config', 'UA-118965717-5');
     </script>
   </head>
   <body class="app flex-row align-items-center" lang="es-sv">
-    <div class="jumbotron vertical-center"> 
+    <div class="jumbotron vertical-center">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-8">
@@ -76,10 +76,17 @@
                       @endif
                     </div>
                     <div class="row">
-                      <div class="col-6">
+                      <div class="col-6"  style="display: inline-block;">
                        <button type="submit" class="btn btn-dark">
                         {{ __('Login') }}
-                      </button>                    
+                      </button>
+                    </div>
+                    <div class="col-6">
+                    <button type="button" class="btn btn-dark">
+                        <a href="{{ route('showRegister') }}" class="text-white">
+                          {{ __('Register') }}
+                        </a>
+                        </button>
                     </div>
                   </div>
                 </form>

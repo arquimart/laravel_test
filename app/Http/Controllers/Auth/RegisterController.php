@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+
+
 
 class RegisterController extends Controller
 {
@@ -28,6 +32,7 @@ class RegisterController extends Controller
      * Where to redirect users after registration.
      *
      * @var string
+     *
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
@@ -69,5 +74,19 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    /**
+ * Handle a registration request for the application.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return \Illuminate\Http\Response
+ */
+    public function registerUser(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $user=$this->create($request->all());
+        //$user->assignRole('user');
+        return redirect($this->redirectPath())->with('success', 'Usuario creado correctamente');
     }
 }
