@@ -43,5 +43,10 @@ Route::post('/categorias/{id}', [Categorias_controller::class,"update"])->name('
 
 Route::get('/peliculas', [Peliculas_controller::class,"index"])->name('peliculas.index');
 Route::get('/peliculasAdmin', [Peliculas_controller::class,"indexAdmin"])->name('peliculas.admin');
+Route::get('/peliculasAgregar', [Peliculas_controller::class,"create"])->name('peliculas.create');
+Route::post('/peliculasGuardar', [Peliculas_controller::class,"store"])->name('peliculas.store');
+Route::get('/peliculasEditar/{id}', [Peliculas_controller::class,"edit"])->name('peliculas.edit');
+Route::post('/peliculasActualizar/{id}', [Peliculas_controller::class,"update"])->name('peliculas.update');
+Route::post('/peliculasEliminar/{id}', [Peliculas_controller::class,"destroy"])->name('peliculas.destroy');
 
 

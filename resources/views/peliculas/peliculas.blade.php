@@ -1,32 +1,34 @@
 @extends('layouts.app')
-@section('title', 'Roles')
+@section('title', 'Peliculas')
 @section('content')
     <div class="content-header">
         <div class="container-fluid">
-            <h2 class="text-center">Roles</h2>
+            <h2 class="text-center">Peliculas</h2>
 
         </div>
-        <table class="table table-dark table-striped">
+        <table class="table table-dark table-striped mt-3">
             <thead>
                 <tr>
                     <th scope="col">id</th>
-                    <th scope="col">nombre</th>
-                    <th scope="col">correo</th>
-                    <th scope="col">admin</th>
-                    <th scope="col">Actualizar</th>
+                    <th scope="col">titulo</th>
+                    <th scope="col">categoria</th>
+                    <th scope="col">año de estreno</th>
+                    <th scope="col">precio renta</th>
+                    <th scope="col">precio compra</th>
+                    <th scope="col">cantidad dispobible</th>
+
                 </tr>
             </thead>
             <tbody>
                 @foreach ($peli as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->email}}</td>
-                        @if ($item->admin)
-                            <td>si</td>
-                        @else
-                            <td>no</td>
-                        @endif
+                        <td>{{ $item->titulo }}</td>
+                        <td>{{ $item->nombre}}</td>
+                        <td>{{ $item->agno}}</td>
+                        <td>{{ $item->pr}}</td>
+                        <td>{{ $item->cmp}}</td>
+                        <td>{{ $item->cant}}</td>
 
                     </tr>
                 @endforeach
