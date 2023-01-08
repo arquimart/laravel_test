@@ -9,20 +9,24 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>App - @yield('title')</title>
-  
+
+
   <!-- Scripts -->
-  <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>  
+  <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>
   <script type="text/javascript" src="{{ asset('plugins/DataTables/datatables.min.js') }}" defer></script>
   <script type="text/javascript" src="{{ asset('plugins/sweetalert2/sweetalert2.js') }}" defer></script>
   <script type="text/javascript" src="{{ asset('plugins/jquery-confirm/jquery-confirm.min.js') }}" defer></script>
   <script type="text/javascript" src="{{ asset('plugins/fontawesome/js/all.min.js') }}" defer></script>
   <script type="text/javascript" src="{{ asset('plugins/select2/select2.min.js') }}" defer></script>
+
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ asset('plugins/DataTables/datatables.min.css') }}"/>
   <link rel="stylesheet" type="text/css" href="{{ asset('plugins/jquery-confirm/jquery-confirm.min.css') }}"/>
   <link rel="stylesheet" type="text/css" href="{{ asset('plugins/fontawesome/css/all.min.css') }}"/>
   <link rel="stylesheet" type="text/css" href="{{ asset('plugins/select2/select2.min.css') }}"/>
+    <!-- datatable no jquery -->
+
   <style type="text/css">
     .select2-selection__rendered {
       line-height: 25px !important;
@@ -58,9 +62,9 @@
             <a class="nav-link sidebar-toggle" data-widget="pushmenu" href="#" role="button" id="toggle"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item">
-            <h2>App</h2>
+            <h2>App Películas</h2>
           </li>
-        </ul>        
+        </ul>
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
@@ -72,12 +76,12 @@
                 <strong>
                  {{ Auth::user()->name }}
                </strong>
-             </div>              
+             </div>
              <div class="dropdown-divider">
-             </div>            
+             </div>
              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               <i class="fas fa-sign-out-alt"></i>
-              {{ __('Logout') }}                
+              {{ __('Logout') }}
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
               </form>
@@ -89,7 +93,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
       <a href="" class="brand-link bg-gray-light">
         <span class="brand-text font-weight-light">App</span>
-      </a>      
+      </a>
       <div class="sidebar">
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -102,8 +106,8 @@
                 </p>
               </a>
             </li>
-            
-            
+
+
           </ul>
         </nav>
       </div>
@@ -113,14 +117,18 @@
         @yield('content')
       </div>
     </div>
-    <footer class="main-footer bg-dark">    
+    <footer class="main-footer bg-dark">
       <div class="float-right d-none d-sm-inline">
-      </div>    
-      <strong>Copyright &copy; 2020 <a href="#">App</a>.</strong> All rights reserved.
+      </div>
+      <strong>Copyright &copy; 2020 <a href="#">App Películas</a>.</strong> Ronald Abarca All rights reserved.
     </footer>
   </div>
 </div>
+<button id="bt">suii</button>
 </body>
+
 @section('scripts')
 @show
 </html>
+
+

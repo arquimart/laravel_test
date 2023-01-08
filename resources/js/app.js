@@ -30,3 +30,4 @@ Vue.component('user-component', require('./components/UserDataTable.vue').defaul
 const app = new Vue({
     el: '#app',
 });
+

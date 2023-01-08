@@ -17,5 +17,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@localhost.net',
             'password' => bcrypt('password'),
         ]);
+
+        DB::table('rol_usuario')->insert([
+            'admin' => true,
+            'id_usuario'=>1
+        ]);
     }
 }
