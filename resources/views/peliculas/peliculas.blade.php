@@ -17,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($roles as $item)
+                @foreach ($peli as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
@@ -27,11 +27,7 @@
                         @else
                             <td>no</td>
                         @endif
-                        <td>
-                            <form action={{route("roles.edit",$item->id)}} method="GET">
-                                <input type="submit" value="Actualizar" class="btn btn-primary">
-                            </form>
-                        </td>
+
                     </tr>
                 @endforeach
             </tbody>

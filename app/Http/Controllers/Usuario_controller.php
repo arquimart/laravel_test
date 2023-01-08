@@ -10,6 +10,7 @@ use App\model\Rol_usuario;
 class Usuario_controller extends Controller
 {
 
+
     public function index()
     {
         //

@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Rental;
-use App\Customer;
+
 use App\Car;
-use DataTables;
-use DB;
 use Validator;
+use App\Rental;
+use DataTables;
+use App\Customer;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
-{ 
+{
     /**
      * Create a new controller instance.
      *
@@ -30,6 +32,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        return view('home')
+        ->with("model",DB::table("rol_usuario")->select("admin")->where("id",Auth::user()->id)->get()[0]->admin);
     }
 }

@@ -24,7 +24,7 @@
                 </fieldset>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" {{($roles[0]->admin)?"checked":""}} name="check">
-                    <label class="form-check-label" for="exampleCheck1" >Check me out</label>
+                    <label class="form-check-label" for="exampleCheck1" >Administrador</label>
                   </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>

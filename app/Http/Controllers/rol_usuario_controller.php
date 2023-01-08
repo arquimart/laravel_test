@@ -6,13 +6,18 @@ namespace App\Http\Controllers;
 use App\model\Rol_usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class Rol_usuario_controller extends Controller
 {
     public function __construct()
     {
+
         $this->middleware('auth');
+
+
     }
+
 
     public function index()
     {
@@ -22,10 +27,14 @@ class Rol_usuario_controller extends Controller
         ->select("users.id as id","users.name as name","rol_usuario.admin as admin","users.email as email")
         ->get();
 
-        return view("roles.roles",["roles"=>$roles]);
+        //dump(DB::table("rol_usuario")->select("admin")->where("id",1)->get()[0]->admin);
+        //$var=DB::table("rol_usuario")->select("admin")->where("id",Auth::user()->id)->get()[0]->admin;
+        return view("roles.roles",["roles"=>$roles])
+        ->with("model",DB::table("rol_usuario")->select("admin")->where("id",Auth::user()->id)->get()[0]->admin);
 
 
     }
+
 
 
     public function create()
@@ -54,7 +63,8 @@ class Rol_usuario_controller extends Controller
         ->get();
 
         //dump($roles);
-        return view("roles.actualiza",["roles"=>$roles]);
+        return view("roles.actualiza",["roles"=>$roles])
+        ->with("model",DB::table("rol_usuario")->select("admin")->where("id",Auth::user()->id)->get()[0]->admin);
     }
 
 

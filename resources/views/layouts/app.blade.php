@@ -99,21 +99,52 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
             <li class="nav-item">
-              <a href="{!!URL::to('/menu1')!!}" class="nav-link">
-                <i class="fa fa-film" aria-hidden="true"></i>
+              <a href="{!!URL::to('/')!!}" class="nav-link">
+                <i class="fa fa-home" aria-hidden="true"></i>
+
                 <p>
-                  Películas
+                  Home
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="{!!URL::to('/roles')!!}" class="nav-link">
-                <i class="fa fa-id-card" aria-hidden="true"></i>
-                <p>
-                  Roles
-                </p>
-              </a>
-            </li>
+                <a href="{!!URL::to('/peliculas')!!}" class="nav-link">
+                  <i class="fa fa-film" aria-hidden="true"></i>
+                  <p>
+                    Películas
+                  </p>
+                </a>
+              </li>
+
+                @if ($model??false)
+
+                    <li class="nav-item">
+                    <a href="{!!URL::to('/roles')!!}" class="nav-link">
+                        <i class="fa fa-id-card" aria-hidden="true"></i>
+                        <p>
+                        Roles
+                        </p>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="{!!URL::to('/categorias')!!}" class="nav-link">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        <p>
+                        Categorias
+                        </p>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{!!URL::to('/peliculasAdmin')!!}" class="nav-link">
+                          <i class="fa fa-film" aria-hidden="true"></i>
+                          <p>
+                            Películas Admin
+                          </p>
+                        </a>
+                      </li>
+
+
+                @endif
 
 
           </ul>
@@ -132,7 +163,7 @@
     </footer>
   </div>
 </div>
-<button id="bt">suii</button>
+
 </body>
 
 @section('scripts')

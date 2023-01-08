@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('title', 'Roles')
+@section('title', 'Peliculas Admin')
 @section('content')
     <div class="content-header">
         <div class="container-fluid">
-            <h2 class="text-center">Roles</h2>
-
+            <h2 class="text-center">Peliculas Admin</h2>
+            <a href="" class="btn btn-primary">Agregar peliculas</a>
         </div>
-        <table class="table table-dark table-striped">
+        <table class="table table-dark table-striped mt-3">
             <thead>
                 <tr>
                     <th scope="col">id</th>
@@ -17,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($roles as $item)
+                @foreach ($peli as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
