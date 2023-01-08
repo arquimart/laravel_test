@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\model\Rol_usuario;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Rol_usuario_controller extends Controller
 {
@@ -14,9 +16,15 @@ class Rol_usuario_controller extends Controller
 
     public function index()
     {
-        $roles=Rol_usuario::all();
+        $roles1=Rol_usuario::all();
 
-        return view("home",["roles"=>$roles]);
+        $roles=DB::table("rol_usuario")->join("users","users.id","=","rol_usuario.id_usuario")
+        ->select("users.id as id","users.name as name","rol_usuario.admin as admin","users.email as email")
+        ->get();
+
+        return view("roles.roles",["roles"=>$roles]);
+
+
     }
 
 
@@ -40,13 +48,29 @@ class Rol_usuario_controller extends Controller
 
     public function edit($id)
     {
-        //
+        $roles=DB::table("rol_usuario")->join("users","users.id","=","rol_usuario.id_usuario")
+        ->select("users.id as id","users.name as name","rol_usuario.admin as admin","users.email as email")
+        ->where("users.id",$id)
+        ->get();
+
+        //dump($roles);
+        return view("roles.actualiza",["roles"=>$roles]);
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $roles=Rol_usuario::find($id);
+        if(!$request->post("check")){
+            $roles->admin=false;
+        }else{
+            $roles->admin=true;
+
+        }
+
+        $roles->save();
+
+        return redirect()->route("roles.index");
     }
 
 

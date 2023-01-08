@@ -16,9 +16,9 @@ class CreatePeliculasTable extends Migration
         Schema::create('peliculas', function (Blueprint $table) {
             $table->id();
             $table->string("titulo",100);
-            $table->unsignedBigInteger("id_categoria");
+            $table->unsignedBigInteger("id_categoria")->nullable();
             $table->foreign("id_categoria")->references("id")
-            ->on("categorias")->onDelete("cascade");
+            ->on("categorias")->onDelete("set null");
             $table->integer("agno_estreno");
             $table->float("precio_renta");
             $table->float("precio_compra");

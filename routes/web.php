@@ -30,5 +30,7 @@ Route::get('menu1', function(){
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/xd', [Rol_usuario_controller::class,"index"])->name('xd');
+Route::get('/roles', [Rol_usuario_controller::class,"index"])->name('roles.index');
+Route::get('/rolesActualizar/{id}', [Rol_usuario_controller::class,"edit"])->name('roles.edit');
+Route::post('/rolesModificar/{id}', [Rol_usuario_controller::class,"update"])->name('roles.update');
 

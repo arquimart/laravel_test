@@ -92,7 +92,7 @@
     </nav>
     <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
       <a href="" class="brand-link bg-gray-light">
-        <span class="brand-text font-weight-light">App</span>
+        <span class="brand-text font-weight-light">App películas</span>
       </a>
       <div class="sidebar">
         <nav class="mt-2">
@@ -100,9 +100,17 @@
 
             <li class="nav-item">
               <a href="{!!URL::to('/menu1')!!}" class="nav-link">
-                <i class="nav-icon fas fa-cubes"></i>
+                <i class="fa fa-film" aria-hidden="true"></i>
                 <p>
-                  Menú 1
+                  Películas
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{!!URL::to('/roles')!!}" class="nav-link">
+                <i class="fa fa-id-card" aria-hidden="true"></i>
+                <p>
+                  Roles
                 </p>
               </a>
             </li>
