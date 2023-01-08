@@ -3,32 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\model\Rol_usuario;
+use App\User;
+use App\model\Usuario;
 
-class Rol_usuario_controller extends Controller
+class Usuario_controller extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function index()
     {
-        $roles=Rol_usuario::all();
-
-        return view("home",["roles"=>$roles]);
+        //
     }
 
 
     public function create()
     {
-        //
+        return view("user.create");
     }
 
 
     public function store(Request $request)
     {
-        //
+        $usuario=new Usuario();
+        $usuario->name=$request->post("name");
+        $usuario->email=$request->post("email");
+        $usuario->password=bcrypt($request->post("password"));
+        $usuario->save();
+
+        return view("auth.login");
+
     }
 
 

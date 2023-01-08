@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\rol_usuario_controller;
+use App\Http\Controllers\Rol_usuario_controller;
+use App\Http\Controllers\Usuario_controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,10 @@ Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::get('registro', [Usuario_controller::class,"create"])->name("user.create");
+Route::post('registro', [Usuario_controller::class,"store"])->name("user.store");
+
+
 Route::get('menu1', function(){
 	return view('menu1.index');
 });
@@ -25,5 +30,5 @@ Route::get('menu1', function(){
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/xd', [rol_usuario_controller::class,"index"])->name('xd');
+Route::get('/xd', [Rol_usuario_controller::class,"index"])->name('xd');
 
