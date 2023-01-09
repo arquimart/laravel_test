@@ -11,7 +11,7 @@ class RentasController extends Controller
 {
     public function renta(Pelicula $pelicula)
     {
-        return view('Renta.nuevaRenta', compact('pelicula'));
+        return view('Renta.nueva-renta', compact('pelicula'));
     }
 
     public function store(Request $request)
@@ -38,7 +38,7 @@ class RentasController extends Controller
         ->join('peliculas','rentas.pelicula_id','=','peliculas.id')
         ->where('rentas.user_id','=',$userid)
         ->get();
-        return view('Renta.showRentas', compact('rentas'));
+        return view('Renta.show-rentas', compact('rentas'));
     }
 
     public function devolver(Renta $renta){
