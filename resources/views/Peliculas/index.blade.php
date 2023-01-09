@@ -35,10 +35,13 @@
                     @else &#10060;
                     @endif
                 </td>
-                <td>
+                <td>@if($pelicula->disponible)
                     <a href="{{route('nuevaRenta', $pelicula->id)}}" class="btn btn-primary">
                     <span class="fas fa-shopping-cart"></span>
                     </a>
+                    @else
+                    <p>Esta pelicula no se puede rentar <br> porque no esta disponible</p>
+                    @endif
                 </td>
                 <td>
                     <a href="{{route('peliculasEdit', $pelicula->id)}}" class="btn btn-warning">

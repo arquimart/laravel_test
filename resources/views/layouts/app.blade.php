@@ -105,8 +105,15 @@
 
             <li class="nav-item">
                 <a href="{!!URL::to('peliculasCreate')!!}" class="nav-link">
-                    <i class="nav-icon fas fa-gear></i>"></i>
+                    <i class="nav-icon fas fa-folder></i>"></i>
                     <p>Crear Pelicula</p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{route ('rentasIndex')}}" class="nav-link">
+                    <i class="nav-icon fas fa-solid fa-toolbox></i>"></i>
+                    <p>Ver Rentas</p>
                 </a>
             </li>
 

@@ -38,6 +38,9 @@ Route::delete('peliculas/{pelicula}', [PeliculasController::class, 'destroy'])->
 Route::get('peliculas/{pelicula}/renta', [RentasController::class, 'renta'])->name('nuevaRenta');
 //Route to store a rent
 Route::post('rentas', [RentasController::class, 'store'])->name('rentasStore');
+//Route to view all of the user rents
+Route::get('rentas', [RentasController::class, 'showRentas'])->name('rentasIndex');
+Route::post('rentas/{renta}', [RentasController::class, 'devolver'])->name('rentasDevolver');
 
 
 Route::get('/', 'HomeController@index')->name('home');
