@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\PeliculasController;
+use App\Http\Controllers\RentasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,10 @@ Route::get('peliculas/{pelicula}', [PeliculasController::class, 'edit'])->name('
 Route::put('peliculas/{pelicula}', [PeliculasController::class, 'update'])->name('peliculasUpdate');
 ///Route to delete a movie
 Route::delete('peliculas/{pelicula}', [PeliculasController::class, 'destroy'])->name('peliculasDestroy');
+//Route to rent a movie
+Route::get('peliculas/{pelicula}/renta', [RentasController::class, 'renta'])->name('nuevaRenta');
+//Route to store a rent
+Route::post('rentas', [RentasController::class, 'store'])->name('rentasStore');
 
 
 Route::get('/', 'HomeController@index')->name('home');

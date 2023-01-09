@@ -95,8 +95,8 @@
             <div class="card text-white bg-dark py-5 d-md-down-none" style="width:44%">
               <div class="card-body text-center">
                 <div>
-                  <h2>App</h2>
-                  <p>App...</p>
+                  <h2>DevTech</h2>
+                  <p>Renta de peliculas</p>
                 </div>
               </div>
             </div>

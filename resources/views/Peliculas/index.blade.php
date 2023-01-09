@@ -18,6 +18,7 @@
                 <th scope="col">Fecha de lanzamiento</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Disponible</th>
+                <th scope="col">Rentar</th>
                 <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -33,6 +34,11 @@
                         &#9989;
                     @else &#10060;
                     @endif
+                </td>
+                <td>
+                    <a href="{{route('nuevaRenta', $pelicula->id)}}" class="btn btn-primary">
+                    <span class="fas fa-shopping-cart"></span>
+                    </a>
                 </td>
                 <td>
                     <a href="{{route('peliculasEdit', $pelicula->id)}}" class="btn btn-warning">

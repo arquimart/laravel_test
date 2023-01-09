@@ -36,7 +36,7 @@
                 <div class="input-group mb-4">
                     <label for="poster" class="col-sm-2 col-form-label">Disponible</label>
                     <div class="col-sm-10">
-                        <select class="form-control" id="disponible" name="disponible" >
+                        <select class="form-control" id="disponible" name="disponible">
                             <option value="1" {{$pelicula->disponible == 1 ? 'selected' : ''}}>Si</option>
                             <option value="0" {{$pelicula->disponible == 0 ? 'selected' : ''}}>No</option>
                         </select>
