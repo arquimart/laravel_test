@@ -9,9 +9,9 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>App - @yield('title')</title>
-  
+
   <!-- Scripts -->
-  <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>  
+  <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>
   <script type="text/javascript" src="{{ asset('plugins/DataTables/datatables.min.js') }}" defer></script>
   <script type="text/javascript" src="{{ asset('plugins/sweetalert2/sweetalert2.js') }}" defer></script>
   <script type="text/javascript" src="{{ asset('plugins/jquery-confirm/jquery-confirm.min.js') }}" defer></script>
@@ -58,9 +58,9 @@
             <a class="nav-link sidebar-toggle" data-widget="pushmenu" href="#" role="button" id="toggle"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item">
-            <h2>App</h2>
+            <h2>Renta de pelicula</h2>
           </li>
-        </ul>        
+        </ul>
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
@@ -72,12 +72,12 @@
                 <strong>
                  {{ Auth::user()->name }}
                </strong>
-             </div>              
+             </div>
              <div class="dropdown-divider">
-             </div>            
+             </div>
              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               <i class="fas fa-sign-out-alt"></i>
-              {{ __('Logout') }}                
+              {{ __('Logout') }}
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
               </form>
@@ -88,22 +88,28 @@
     </nav>
     <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
       <a href="" class="brand-link bg-gray-light">
-        <span class="brand-text font-weight-light">App</span>
-      </a>      
+        <span class="brand-text font-weight-light">DevTech</span>
+      </a>
       <div class="sidebar">
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
             <li class="nav-item">
-              <a href="{!!URL::to('/menu1')!!}" class="nav-link">
-                <i class="nav-icon fas fa-cubes"></i>
+              <a href="{!!URL::to('peliculas')!!}" class="nav-link">
+                <i class="nav-icon fas fa-film"></i>
                 <p>
-                  Menú 1
+                  Peliculas
                 </p>
               </a>
             </li>
-            
-            
+
+            <li class="nav-item">
+                <a href="{!!URL::to('peliculasCreate')!!}" class="nav-link">
+                    <i class="nav-icon fas fa-gear></i>"></i>
+                    <p>Crear Pelicula</p>
+                </a>
+            </li>
+
           </ul>
         </nav>
       </div>
@@ -113,10 +119,10 @@
         @yield('content')
       </div>
     </div>
-    <footer class="main-footer bg-dark">    
+    <footer class="main-footer bg-dark">
       <div class="float-right d-none d-sm-inline">
-      </div>    
-      <strong>Copyright &copy; 2020 <a href="#">App</a>.</strong> All rights reserved.
+      </div>
+      <strong>Copyright &copy; 2023 Benneth Miguel.</strong> All rights reserved.
     </footer>
   </div>
 </div>

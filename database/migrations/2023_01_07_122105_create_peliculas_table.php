@@ -15,12 +15,13 @@ class CreatePeliculasTable extends Migration
     {
         Schema::create('peliculas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('description');
-            $table->string('image');
-            $table->date('release_date');
-            $table->boolean('disponible');
+            $table->string('title');
+            $table->string('category');
+            $table->year('release_date');
+            $table->longText('description');
+            $table->boolean('disponible')->default(false);
             $table->timestamps();
+
         });
     }
 

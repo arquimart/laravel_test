@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\PeliculasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,10 +21,18 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('showRegister', 'Auth\RegisterController@showRegistrationForm')->name('showRegister');
 Route::post('registerUser', 'Auth\RegisterController@registerUser')->name('registerUser');
 
-Route::get('menu1', function(){
-	return view('menu1.index');
-});
-
+///Route to retrieve movies and show view
+Route::get('peliculas', [PeliculasController::class, 'index']);
+///Route to show view to create a new movie
+Route::get('peliculasCreate', [PeliculasController::class, 'create'])->name('peliculasCreate');
+///Route to store a new movie
+Route::post('peliculas', [PeliculasController::class, 'store'])->name('peliculasStore');
+///Route to show view to edit a movie
+Route::get('peliculas/{pelicula}', [PeliculasController::class, 'edit'])->name('peliculasEdit');
+///Route to update a movie
+Route::put('peliculas/{pelicula}', [PeliculasController::class, 'update'])->name('peliculasUpdate');
+///Route to delete a movie
+Route::delete('peliculas/{pelicula}', [PeliculasController::class, 'destroy'])->name('peliculasDestroy');
 
 
 Route::get('/', 'HomeController@index')->name('home');

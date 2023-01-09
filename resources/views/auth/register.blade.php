@@ -45,7 +45,12 @@
                             <i class="fas fa-envelope"></i>
                             </span>
                         </div>
-                        <input name="email" type="email" placeholder="Email" class="form-control" required autofocus>
+                        <input name="email" type="email" placeholder="Email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" required autofocus>
+                        @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                        @endif
                     </div>
                     <div class="input-group mb-4">
                         <div class="input-group-prepend">
@@ -87,8 +92,8 @@
             <div class="card text-white bg-dark py-5 d-md-down-none" style="width:44%">
                 <div class="card-body text-center">
                     <div>
-                        <h2>App</h2>
-                        <p>App...</p>
+                        <h2>DevTech</h2>
+                        <p>Renta de peliculas</p>
                     </div>
                 </div>
             </div>
