@@ -12,11 +12,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@localhost.net',
-            'password' => bcrypt('password'),
-        ]);
-
+        $this->call([RoleSeeder::class]);
     }
+   /* DB::table('users')->insert([
+        'name' => 'admin',
+        'email' => 'admin@localhost.net',
+         'password' => bcrypt('password'),
+    ])->assignRole('admin');*/
 }
+

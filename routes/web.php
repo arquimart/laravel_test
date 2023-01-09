@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\PeliculasController;
 use App\Http\Controllers\RentasController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,11 @@ Route::post('rentas', [RentasController::class, 'store'])->name('rentasStore');
 //Route to view all of the user rents
 Route::get('rentas', [RentasController::class, 'showRentas'])->name('rentasIndex');
 Route::post('rentas/{renta}', [RentasController::class, 'devolver'])->name('rentasDevolver');
+//Route to view users
+Route::get('/users', [UserController::class, 'users'])->name('usersIndex');
+//Route to switch role
+Route::post('/users/{user}', [UserController::class, 'switchRole'])->name('switchRole');
+
 
 
 Route::get('/', 'HomeController@index')->name('home');

@@ -9,6 +9,7 @@
   <div class="container-fluid">
     <div class="card">
         <div class="card-body">
+        <h1>Catalogo</h1>
         <table class="table table-stripped" id="peliculas">
             <thead>
                 <tr>
@@ -19,7 +20,9 @@
                 <th scope="col">Descripcion</th>
                 <th scope="col">Disponible</th>
                 <th scope="col">Rentar</th>
+                @can('peliculasEdit')
                 <th scope="col">Acciones</th>
+                @endcan
                 </tr>
             </thead>
             <tbody>
@@ -44,6 +47,7 @@
                     @endif
                 </td>
                 <td>
+                    @can('peliculasEdit')
                     <a href="{{route('peliculasEdit', $pelicula->id)}}" class="btn btn-warning">
                     <span class="fas fa-pen"></span>
                     </a>
@@ -54,6 +58,7 @@
                             <span class="fas fa-trash"></span>
                         </button>
                     </form>
+                    @endcan
                 </td>
                 </tr>
                 @endforeach

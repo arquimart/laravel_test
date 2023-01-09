@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Rentas')
+@section('title', 'Catalogo')
 @section('content')
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
@@ -9,36 +9,29 @@
   <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-        <h1>Rentas</h1>
-        <table class="table table-stripped" id="rentas">
+        <h1>Catalogo</h1>
+        <table class="table table-stripped" id="users">
             <thead>
                 <tr>
                 <th scope="col">id</th>
-                <th scope="col">Pelicula</th>
-                <th scope="col">Fecha de renta</th>
-                <th scope="col">Fecha de devolucion</th>
-                <th scope="col">Email de usuario</th>
-                <th scope="col">Estado de devolucion</th>
-                <th scope="col">Devolver</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col">Rol</th>
+                <th scope="col">Cambiar Rol</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($rentas as $rent)
+                @foreach ($users as $us)
                 <tr>
-                <th scope="row">{{$rent->id}}</th>
-                <td>{{$rent->pelicula}}</td>
-                <td>{{$rent->fecha_renta}}</td>
-                <td>{{$rent->fecha_devolucion}}</td>
-                <td>{{auth()->user()->email}}</td>
-                <td allign="center">@if($rent->devuelto)
-                        &#9989;
-                    @else &#10060;
-                    @endif
+                <th scope="row">{{$us->id}}</th>
+                <td>{{$us->name}}</td>
+                <td>{{$us->email}}</td>
+                <td>{{$us->role}}</td>
                 <td>
-                    <form action="{{route('rentasDevolver', $rent->id)}}" method="POST">
+                    <form action="{{route('switchRole', $us->id)}}" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-success">
-                            Devolver
+                            Cambiar Rol
                         </button>
                     </form>
                 </td>
@@ -50,9 +43,7 @@
     </div>
   </div>
 </div>
-
 @endsection
-
 
 @section('scripts')
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -61,19 +52,13 @@
     <script>
 
         $(document).ready(function () {
-            $('#rentas').DataTable({
+            $('#users').DataTable({
                 order:[[1, 'asc']],
-                columnDefs: [
-                {
-                    targets: [0],
-                    visible: false,
-                    searchable: false,
-                },
-
-                ],
             });
         });
 
 
     </script>
+
+
 @endsection
