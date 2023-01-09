@@ -9,7 +9,7 @@
   <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-        <h1>Catalogo</h1>
+        <h1>Usuarios</h1>
         <table class="table table-stripped" id="users">
             <thead>
                 <tr>
