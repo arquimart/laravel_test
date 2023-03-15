@@ -21,6 +21,9 @@ class CreateHistorialComprasTable extends Migration
             $table->unsignedBigInteger("id_pelicula");
             $table->foreign("id_pelicula")->references("id")
             ->on("peliculas")->onDelete("cascade");
+            $table->integer("cantidad");
+            $table->float("precio");
+            $table->float("total");
             $table->timestamps();
         });
     }

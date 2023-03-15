@@ -5,6 +5,8 @@ use App\Http\Controllers\Usuario_controller;
 use App\Http\Controllers\Categorias_controller;
 use App\Http\Controllers\Rol_usuario_controller;
 use App\Http\Controllers\Peliculas_controller;
+use App\Http\Controllers\Historial_compras_controller;
+use App\Http\Controllers\Historial_rentas_controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,5 +50,12 @@ Route::post('/peliculasGuardar', [Peliculas_controller::class,"store"])->name('p
 Route::get('/peliculasEditar/{id}', [Peliculas_controller::class,"edit"])->name('peliculas.edit');
 Route::post('/peliculasActualizar/{id}', [Peliculas_controller::class,"update"])->name('peliculas.update');
 Route::post('/peliculasEliminar/{id}', [Peliculas_controller::class,"destroy"])->name('peliculas.destroy');
+Route::get('/peliculaOperacion/{id}', [Peliculas_controller::class,"operacion"])->name('peliculas.operacion');
+Route::post('/peliculaOperacionA/{id}', [Peliculas_controller::class,"operacionAccion"])->name('peliculas.operacionA');
+
+Route::get('/historialcompras', [Historial_compras_controller::class,"index"])->name('historialcompras.index');
+
+
+Route::get('/historialrentas', [Historial_rentas_controller::class,"index"])->name('historialrentas.index');
 
 

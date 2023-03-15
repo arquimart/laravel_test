@@ -16,6 +16,7 @@
                     <th scope="col">precio renta</th>
                     <th scope="col">precio compra</th>
                     <th scope="col">cantidad dispobible</th>
+                    <th scope="col">comprar o alquilar</th>
 
                 </tr>
             </thead>
@@ -29,6 +30,13 @@
                         <td>{{ $item->pr}}</td>
                         <td>{{ $item->cmp}}</td>
                         <td>{{ $item->cant}}</td>
+                        <td>
+                            <form action={{route('peliculas.operacion',$item->id)}} method="GET">
+                                @csrf
+                                <input type="submit" value="C/A" class="btn btn-primary">
+                            </form>
+
+                        </td>
 
                     </tr>
                 @endforeach

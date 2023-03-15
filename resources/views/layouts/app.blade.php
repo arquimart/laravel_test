@@ -142,6 +142,22 @@
                           </p>
                         </a>
                       </li>
+                    <li class="nav-item">
+                        <a href="{!!URL::to('/historialcompras')!!}" class="nav-link">
+                            <i class="fa fa-shopping-cart"></i>
+                          <p>
+                            historial compras
+                          </p>
+                        </a>
+                      </li>
+                    <li class="nav-item">
+                        <a href="{!!URL::to('/historialrentas')!!}" class="nav-link">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                          <p>
+                           historial rentas
+                          </p>
+                        </a>
+                      </li>
 
 
                 @endif
